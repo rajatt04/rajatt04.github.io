@@ -1,6 +1,6 @@
 
 TITLE: 
-Crew - Responsive Free HTML5 template
+Rajat
 
 AUTHOR:
 DESIGNED & DEVELOPED by FREEHTML5.co
