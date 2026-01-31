@@ -1,0 +1,386 @@
+/* Connect Hub (Ultimate Resume & Contact) */
+.section-connect {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.connect-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.connect-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--md-sys-color-primary), transparent);
+    top: 20%;
+    left: -100px;
+    animation: orb-float 10s infinite alternate;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--md-sys-color-tertiary), transparent);
+    bottom: 10%;
+    right: -50px;
+    animation: orb-float 8s infinite alternate-reverse;
+}
+
+@keyframes orb-float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(30px, -30px);
+    }
+}
+
+.connect-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+}
+
+.connect-card-wrapper {
+    flex: 1;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.connect-card {
+    min-height: 500px;
+    border-radius: 24px;
+    background: rgba(30, 30, 35, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    /* Smooth tilt */
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(20px);
+}
+
+/* Resume Specifics */
+.resume-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.icon-box-lg {
+    width: 56px;
+    height: 56px;
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-modern {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-entry:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -27px;
+    /* 2px border + 20px padding + half size */
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--md-sys-color-primary);
+    border: 4px solid rgba(20, 18, 24, 1);
+    /* Match background to fake gap */
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--md-sys-color-primary);
+}
+
+.timeline-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--md-sys-color-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.timeline-role {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--md-sys-color-on-surface);
+}
+
+.timeline-desc {
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.btn-holographic {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+    border: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 20px rgba(208, 188, 255, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-holographic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(208, 188, 255, 0.6);
+}
+
+/* 3D Resume Decoration */
+.resume-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 160px;
+    z-index: 1;
+    transform: translateZ(-20px) rotateY(-15deg) rotateZ(5deg);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.doc-page {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: float-doc 6s ease-in-out infinite;
+}
+
+.doc-page .line {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.doc-page .l1 {
+    width: 60%;
+}
+
+.doc-page .l2 {
+    width: 90%;
+}
+
+.doc-page .l3 {
+    width: 80%;
+}
+
+@keyframes float-doc {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Contact Specifics */
+.mb-4 {
+    margin-bottom: 24px;
+}
+
+.input-group-modern {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-modern {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+    padding: 12px 0;
+    color: var(--md-sys-color-on-surface);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Floating Label Logic */
+.input-modern:focus,
+.input-modern:not(:placeholder-shown) {
+    background: rgba(255, 255, 255, 0.03);
+    padding-left: 12px;
+    border-bottom-color: transparent;
+}
+
+.label-modern {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-modern:focus~.label-modern,
+.input-modern:not(:placeholder-shown)~.label-modern {
+    top: -10px;
+    left: 0;
+    font-size: 12px;
+    color: var(--md-sys-color-primary);
+}
+
+.border-glow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--md-sys-color-primary);
+    transition: width 0.4s ease;
+}
+
+.input-modern:focus~.border-glow {
+    width: 100%;
+}
+
+.textarea-modern {
+    resize: none;
+    min-height: 100px;
+}
+
+.btn-send {
+    margin-top: 16px;
+    height: 48px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.btn-send:hover {
+    background: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-send .icon-send {
+    transition: transform 0.3s;
+}
+
+.btn-send:hover .icon-send {
+    transform: translateX(4px) rotate(-15deg);
+}
+
+/* Social Hub */
+.social-hub {
+    margin-top: 32px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+}
+
+.social-label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.social-icons-modern {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-pill {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-sys-color-on-surface);
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.social-pill:hover {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Connect */
+@media (max-width: 900px) {
+    .connect-container {
+        flex-direction: column;
+    }
+
+    .resume-decoration {
+        opacity: 0.1;
+        /* Fade out on mobile to prevent clutter */
+    }
+}
