@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Meditech | Advanced Medical Solutions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/m3-theme.css">
+</head>
+
+<body>
+
+    <header id="header-placeholder"></header>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Reliable Medical Technology for Better Care</h1>
+            <p>Manufacturing high-quality Radiant Warmers, ECG Machines, and Patient Monitors. Trusted by hospitals and
+                clinics nationwide.</p>
+            <a href="#products" class="btn">View Catalog <span
+                    class="material-symbols-outlined">arrow_forward</span></a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Silicon Meditech</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Committed to Healthcare Excellence</h3>
+                <p>At Silicon Meditech, we specialize in the manufacturing and purchasing of critical care medical
+                    equipment. Our mission is to provide affordable, high-precision machinery to support medical
+                    professionals in saving lives.</p>
+                <br>
+                <p>With years of expertise in biomedical engineering, our products like Radiant Warmers and ECG Machines
+                    are designed for durability, accuracy, and ease of use.</p>
+            </div>
+            <div class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="images/radiant_warmer.jpg" alt="Infant Radiant Warmer">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Neonatal Care</span>
+                    <h3 class="product-title">Infant Radiant Warmer</h3>
+                    <p class="product-desc">Microprocessor-based temperature control system with skin/air modes and
+                        ceramic heater.</p>
+                    <button class="btn" onclick="inquireProduct('Infant Radiant Warmer')">Inquire Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="images/ecg_machine.jpg" alt="ECG Machine">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Diagnostics</span>
+                    <h3 class="product-title">12-Channel ECG Machine</h3>
+                    <p class="product-desc">High-resolution digital electrocardiograph with touch screen and internal
+                        printer.</p>
+                    <button class="btn" onclick="inquireProduct('ECG Machine')">Inquire Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="images/patient_monitor.jpg" alt="Patient Monitor">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Critical Care</span>
+                    <h3 class="product-title">Multi-Para Monitor</h3>
+                    <p class="product-desc">Real-time monitoring of SpO2, NIBP, Temperature, and ECG waveforms.</p>
+                    <button class="btn" onclick="inquireProduct('Patient Monitor')">Inquire Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><span class="material-symbols-outlined">location_on</span></div>
+                    <p>Utran, Surat - 394105, India</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><span class="material-symbols-outlined">call</span></div>
+                    <p>+91 93279 98218</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><span class="material-symbols-outlined">mail</span></div>
+                    <p>kevatrajat29@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form
+                    onsubmit="event.preventDefault(); alert('Thank you! We will contact you regarding your requirements.');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Phone Number" required>
+                    <textarea id="messageBox" rows="5" placeholder="Message or Product Inquiry"></textarea>
+                    <button type="submit" class="btn">Send Message <span
+                            class="material-symbols-outlined">send</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer-placeholder"></footer>
+
+    <a href="tel:+919327998218" class="call-now-btn" title="Call Now">
+        <span class="material-symbols-outlined">call</span>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/components.js"></script>
+
+</body>
+
+</html>
