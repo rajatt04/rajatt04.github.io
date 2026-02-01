@@ -624,6 +624,18 @@ section {
         right: 50%;
         transform: translateX(50%);
     }
+
+    /* Fix for Code Block getting cut/hidden */
+    .card-1 {
+        z-index: 20 !important;
+        transform: translateZ(60px) rotateY(0deg) !important;
+        left: 50% !important;
+        top: 0% !important;
+        transform: translateX(-50%) translateZ(60px) !important;
+        width: max-content;
+        max-width: 90%;
+        animation: none !important;
+    }
 }
 
 /* Components */
@@ -1636,16 +1648,27 @@ input:checked+.slider:before {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     padding: 40px;
     position: relative;
-    overflow: hidden;
-    transform-style: preserve-3d;
+    /* overflow: hidden; Removed to fix 3D clickability */
+    /* transform-style: preserve-3d; Removed as not needed */
     transition: transform 0.1s ease-out;
     /* Smooth tilt */
 }
 
 .card-content {
     position: relative;
-    z-index: 2;
-    /* transform: translateZ(20px); Removed to fix click offset issues */
+    z-index: 10;
+    /* transform: translateZ(60px); Removed to fix clickability */
+    pointer-events: auto;
+    /* Bring content forward to ensure clickability */
+}
+
+/* Ensure buttons are clickable */
+.resume-action .m3-btn,
+.contact-form-modern .m3-btn {
+    position: relative;
+    z-index: 20;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 /* Resume Specifics */
@@ -1729,13 +1752,16 @@ input:checked+.slider:before {
     font-weight: 700;
     letter-spacing: 0.5px;
     box-shadow: 0 4px 20px rgba(208, 188, 255, 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 100;
+    position: relative;
+    cursor: pointer;
 }
 
 .btn-holographic:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(208, 188, 255, 0.6);
-    border-radius: 8px;
+    border-radius: 4px !important;
     /* Force square shape on hover */
 }
 
