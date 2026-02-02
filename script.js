@@ -220,3 +220,19 @@ if (contactForm) {
     });
 }
 
+
+// Shimmer Overlay Logic
+window.addEventListener('load', () => {
+    const shimmerOverlay = document.getElementById('shimmerOverlay');
+    if (shimmerOverlay) {
+        // Minimum display time to prevent flickering on fast connections
+        setTimeout(() => {
+            shimmerOverlay.classList.add('fade-out');
+
+            // Remove from DOM after transition
+            setTimeout(() => {
+                shimmerOverlay.style.display = 'none';
+            }, 500); // Match CSS transition duration
+        }, 500); // Minimum 500ms display
+    }
+});
