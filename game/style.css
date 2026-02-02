@@ -15,14 +15,6 @@
     /* Top/Bottom padding, NO side padding */
     margin-bottom: 80px;
 }
-
-/* Add side padding on smaller screens for better spacing */
-@media (max-width: 899px) {
-    #game {
-        padding: 80px 24px 40px !important;
-    }
-}
-
 /* Constrain the header text so it aligns with other sections */
 #game .section-header {
     max-width: 1200px;
