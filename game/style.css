@@ -143,11 +143,17 @@
 /* Robust Layout Fix for Desktop Rail Intersection */
 @media (min-width: 900px) {
     #game {
-        /* Ensure specific clearance for the 80px Navigation Rail */
-        padding-left: 80px !important;
-        width: auto !important;
-        /* Let block layout fill remaining space */
+        /* Pull left to cover rail area */
+        margin-left: -80px !important;
+        /* Increase width to compensate for left pull AND fill right side */
+        width: calc(100% + 80px) !important;
+        padding-left: 0 !important;
         left: 0 !important;
-        margin-left: 0 !important;
+    }
+
+    /* Push Header Text to right to avoid Rail overlap */
+    #game .section-header {
+        padding-left: 104px;
+        /* 80px Rail + 24px Spacing */
     }
 }
