@@ -122,7 +122,7 @@ function startGame() {
     // Reset state
     resetGame();
     isPlaying = true;
-    collisionGracePeriod = 60; // 1 second grace period approx
+    collisionGracePeriod = 120; // 2 seconds grace period
 
     // UI Updates
     startScreen.classList.add('hidden');
@@ -130,7 +130,7 @@ function startGame() {
     scoreHud.style.display = 'block';
 
     lastTime = performance.now();
-    animate();
+    requestAnimationFrame(animate);
 }
 
 function resetGame() {
@@ -143,6 +143,7 @@ function resetGame() {
     obstacles = [];
 
     player.position.set(0, 0, 0);
+    player.rotation.set(-Math.PI / 2, 0, 0); // Reset rotation
 }
 
 function stopGame() {
@@ -188,8 +189,17 @@ function spawnObstacle() {
 function update(time) {
     if (!isPlaying) return;
 
+    // Safety check for first frame undefined time or NaN
+    if (!time) {
+        lastTime = performance.now();
+        return;
+    }
+
     const delta = Math.min((time - lastTime) / 16.67, 3); // Normalize to ~60fps, cap at 3x
     lastTime = time;
+
+    // Prevent NaN propagation if delta is bad
+    if (isNaN(delta)) return;
 
     // Grace Period
     if (collisionGracePeriod > 0) collisionGracePeriod--;
