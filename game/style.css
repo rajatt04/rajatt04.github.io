@@ -16,6 +16,13 @@
     margin-bottom: 80px;
 }
 
+/* Add side padding on smaller screens for better spacing */
+@media (max-width: 899px) {
+    #game {
+        padding: 80px 24px 40px !important;
+    }
+}
+
 /* Constrain the header text so it aligns with other sections */
 #game .section-header {
     max-width: 1200px;
@@ -30,8 +37,7 @@
     width: 100%;
     height: 500px;
     background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
-    border-top: 1px solid var(--md-sys-color-outline-variant);
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    border: 1px solid var(--md-sys-color-outline-variant);
     overflow: hidden;
 }
 
