@@ -1,0 +1,124 @@
+/* Game Section Container */
+#game {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 !important;
+    /* Override default section padding */
+    margin-bottom: 80px;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+    border-top: 1px solid var(--md-sys-color-outline-variant);
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    overflow: hidden;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* UI Overlay */
+.game-ui {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* HUD */
+.game-hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    font-family: 'Outfit', sans-serif;
+    color: var(--android-green);
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(61, 220, 132, 0.5);
+    display: none;
+}
+
+.hud-score span {
+    color: #fff;
+}
+
+/* Glass Card M3 */
+.start-screen,
+.game-over-screen {
+    background: rgba(30, 30, 30, 0.85);
+    /* Darker for better contrast */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 32px;
+    border-radius: 28px;
+    /* M3 Extra Large */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.game-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 42px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #D0BCFF 0%, #381E72 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    font-weight: 800;
+}
+
+.game-desc {
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Controls Hint Box */
+.controls-hint-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 8px;
+}
+
+.controls-icon {
+    font-size: 18px;
+    color: var(--md-sys-color-primary);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -40%) scale(0.95);
+}
+
+/* Remove old conflicting styles */
+.controls-hint {
+    display: none;
+}

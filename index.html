@@ -21,6 +21,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="game/style.css">
 </head>
 
 <body class="m3-body">
@@ -58,6 +59,10 @@
 			<a href="#pricing" class="drawer-item">
 				<span class="material-symbols-rounded">monetization_on</span>
 				<span class="label">Pricing</span>
+			</a>
+			<a href="#game" class="drawer-item">
+				<span class="material-symbols-rounded">sports_esports</span>
+				<span class="label">Game</span>
 			</a>
 			<a href="#contact" class="drawer-item">
 				<span class="material-symbols-rounded">mail</span>
@@ -104,6 +109,10 @@
 			<a href="#pricing" class="rail-item" data-tooltip="Pricing">
 				<span class="indicator"><span class="material-symbols-rounded">monetization_on</span></span>
 				<span class="label">Pricing</span>
+			</a>
+			<a href="#game" class="rail-item" data-tooltip="Game">
+				<span class="indicator"><span class="material-symbols-rounded">sports_esports</span></span>
+				<span class="label">Game</span>
 			</a>
 			<a href="#contact" class="rail-item" data-tooltip="Contact">
 				<span class="indicator"><span class="material-symbols-rounded">mail</span></span>
@@ -454,6 +463,53 @@
 			</div>
 		</section>
 
+		<!-- Game Section: Cyber Hover -->
+		<section id="game" class="section-game">
+			<div class="section-header">
+				<h2 class="m3-headline-medium">Cyber Hover</h2>
+				<p class="m3-body-medium">Dodge obstacles in the quantum realm. <span
+						style="font-size:12px; opacity:0.7">(Desktop Recommended)</span></p>
+			</div>
+
+			<div class="game-container" id="gameContainer">
+				<div id="gameCanvas"></div>
+
+				<!-- HUD -->
+				<div class="game-hud" id="scoreHud">
+					SCORE: <span id="scoreValue">0</span>
+				</div>
+
+				<!-- Start Screen -->
+				<div class="game-ui start-screen" id="startScreen">
+					<h1 class="game-title">Cyber Hover</h1>
+					<p class="game-desc">Navigate the quantum realm. Avoid the red containment blocks.</p>
+
+					<div class="controls-hint-box">
+						<span class="material-symbols-rounded controls-icon">touch_app</span>
+						<span>Drag to Steer</span>
+						<span class="material-symbols-rounded controls-icon" style="margin-left:8px;">warning</span>
+						<span>Avoid Red</span>
+					</div>
+
+					<button class="m3-btn m3-btn-filled full-width" onclick="window.gameStart()">
+						<span class="material-symbols-rounded">rocket_launch</span> Start Mission
+					</button>
+				</div>
+
+				<!-- Game Over Screen -->
+				<div class="game-ui game-over-screen hidden" id="gameOverScreen">
+					<h1 class="game-title" style="background: none; -webkit-text-fill-color: #FF5449; color: #FF5449;">
+						CRASHED</h1>
+					<p class="game-desc">Mission Failed. Final Score: <span id="finalScore"
+							style="color:#fff; font-weight:700;">0</span></p>
+
+					<button class="m3-btn m3-btn-tonal full-width" onclick="window.gameRestart()">
+						<span class="material-symbols-rounded">replay</span> Try Again
+					</button>
+				</div>
+			</div>
+		</section>
+
 		<!-- Connect Hub (Resume & Contact) -->
 		<section id="contact" class="section-connect">
 			<div class="connect-bg-layer">
@@ -598,6 +654,7 @@
 	<div id="snackbar" class="m3-snackbar">Message Sent Successfully!</div>
 
 	<script src="script.js"></script>
+	<script type="module" src="game/logic.js"></script>
 </body>
 
 </html>
