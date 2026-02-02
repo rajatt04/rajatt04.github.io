@@ -139,3 +139,15 @@
 .controls-hint {
     display: none;
 }
+
+/* Robust Layout Fix for Desktop Rail Intersection */
+@media (min-width: 900px) {
+    #game {
+        /* Ensure specific clearance for the 80px Navigation Rail */
+        padding-left: 80px !important;
+        width: auto !important;
+        /* Let block layout fill remaining space */
+        left: 0 !important;
+        margin-left: 0 !important;
+    }
+}
