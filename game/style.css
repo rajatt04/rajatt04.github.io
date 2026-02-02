@@ -1,10 +1,17 @@
 /* Game Section Container */
 #game {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    /* Force viewport width */
+    max-width: 100vw;
+    /* Override section limit */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    /* Center breakout */
+    margin-right: -50vw;
     overflow: hidden;
     padding: 0 !important;
-    /* Override default section padding */
     margin-bottom: 80px;
 }
 

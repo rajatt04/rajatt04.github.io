@@ -158,57 +158,68 @@ function stopGame() {
 }
 
 function spawnObstacle() {
-    // More structured spawning logic to avoid walls
-    // Divide width into 3 lanes: -3, 0, +3
     const lanes = [-3, 0, 3];
     const laneIndex = Math.floor(Math.random() * lanes.length);
-    // Add some jitter
     const xPos = lanes[laneIndex] + (Math.random() - 0.5);
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshPhongMaterial({
-        color: CONFIG.colors.obstacle,
-        emissive: 0x440000
-    });
-    const obstacle = new THREE.Mesh(geometry, material);
+    // 70% Chance of Collectible (Red), 30% Chance of Hazard (Purple)
+    const isHazard = Math.random() > 0.7;
 
-    obstacle.position.set(xPos, 0, -60); // Spawn far away
+    let geometry, material;
 
-    // Random spin
-    obstacle.userData = {
+    if (isHazard) {
+        // Spike Hazard
+        geometry = new THREE.ConeGeometry(0.8, 2, 4);
+        material = new THREE.MeshPhongMaterial({
+            color: 0x9C27B0, // Purple
+            emissive: 0x4A148C,
+            flatShading: true
+        });
+    } else {
+        // Red Collectible Cube
+        geometry = new THREE.BoxGeometry(1, 1, 1);
+        material = new THREE.MeshPhongMaterial({
+            color: 0xFF3D00, // Red (Requested)
+            emissive: 0xFF0000,
+            opacity: 0.9,
+            transparent: true
+        });
+    }
+
+    const obs = new THREE.Mesh(geometry, material);
+    obs.position.set(xPos, 0, -60);
+
+    obs.userData = {
+        type: isHazard ? 'hazard' : 'collectible',
         rotSpeed: {
             x: Math.random() * 0.05,
             y: Math.random() * 0.05
         }
     };
 
-    scene.add(obstacle);
-    obstacles.push(obstacle);
+    scene.add(obs);
+    obstacles.push(obs);
 }
 
 function update(time) {
     if (!isPlaying) return;
 
-    // Safety check for first frame undefined time or NaN
     if (!time) {
         lastTime = performance.now();
         return;
     }
 
-    const delta = Math.min((time - lastTime) / 16.67, 3); // Normalize to ~60fps, cap at 3x
+    const delta = Math.min((time - lastTime) / 16.67, 3);
     lastTime = time;
 
-    // Prevent NaN propagation if delta is bad
     if (isNaN(delta)) return;
 
-    // Grace Period
     if (collisionGracePeriod > 0) collisionGracePeriod--;
 
-    // 1. Move Obstacles
     speed += CONFIG.speedIncrement * delta;
 
-    // Spawn logic: Reduced rate (0.02)
-    if (Math.random() < 0.02 * delta) {
+    // Increased Spawn Rate for "Brain Rot" feel (lots of items)
+    if (Math.random() < 0.05 * delta) {
         spawnObstacle();
     }
 
@@ -220,39 +231,46 @@ function update(time) {
         obs.rotation.x += obs.userData.rotSpeed.x * delta;
         obs.rotation.y += obs.userData.rotSpeed.y * delta;
 
-        // Collision detection
-        if (collisionGracePeriod <= 0) {
-            const playerBox = new THREE.Box3().setFromObject(player);
-            // Manually adjust box to be smaller (ignore glow/engine)
-            // Centered at player position, size roughly 0.6
-            const hitSize = 0.3;
-            playerBox.min.set(player.position.x - hitSize, -0.5, player.position.z - hitSize);
-            playerBox.max.set(player.position.x + hitSize, 0.5, player.position.z + hitSize);
+        // Collision logic
+        const playerBox = new THREE.Box3().setFromObject(player);
+        const hitSize = 0.4;
+        playerBox.min.set(player.position.x - hitSize, -0.5, player.position.z - hitSize);
+        playerBox.max.set(player.position.x + hitSize, 0.5, player.position.z + hitSize);
 
-            const obsBox = new THREE.Box3().setFromObject(obs);
-            obsBox.expandByScalar(-0.1); // Slightly smaller obstacle hitbox
+        const obsBox = new THREE.Box3().setFromObject(obs);
+        obsBox.expandByScalar(-0.1);
 
-            if (playerBox.intersectsBox(obsBox)) {
+        if (playerBox.intersectsBox(obsBox)) {
+            if (obs.userData.type === 'collectible') {
+                // Collect!
+                score += 100; // Big points
+                updateScore(score);
+
+                // Visual pop? (For now just remove)
+                scene.remove(obs);
+                obstacles.splice(i, 1);
+                continue;
+            } else if (collisionGracePeriod <= 0) {
+                // Crash!
                 stopGame();
                 return;
             }
         }
 
-        // Remove if behind camera
         if (obs.position.z > 5) {
             scene.remove(obs);
             obstacles.splice(i, 1);
-            score += 10;
-            updateScore(score);
         }
     }
 
-    // 2. Camera sway
     camera.position.x += (player.position.x / 4 - camera.position.x) * 0.05;
 }
 
 function updateScore(val) {
     scoreValueEl.textContent = Math.floor(val);
+
+    // Dynamic Color effect on score
+    scoreValueEl.style.textShadow = `0 0 20px ${val % 200 === 0 ? '#FF3D00' : '#3DDC84'}`;
 }
 
 function animate(time) {
