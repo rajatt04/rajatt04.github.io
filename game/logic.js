@@ -75,13 +75,13 @@ function init() {
 
 function createEnvironment() {
     // Floor Grid
-    const gridHelper = new THREE.GridHelper(200, 100, CONFIG.colors.player, CONFIG.colors.grid);
+    const gridHelper = new THREE.GridHelper(1000, 200, CONFIG.colors.player, CONFIG.colors.grid);
     gridHelper.position.y = -0.5;
     gridHelper.position.z = -50;
     scene.add(gridHelper);
 
     // Moving Grid Logic is simulated by moving obstacles/player relative
-    const planeGeo = new THREE.PlaneGeometry(200, 200, 20, 20);
+    const planeGeo = new THREE.PlaneGeometry(1000, 1000, 40, 40);
     const planeMat = new THREE.MeshBasicMaterial({
         color: CONFIG.colors.floor,
         wireframe: true,
