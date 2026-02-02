@@ -2,8 +2,8 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
 // Configuration
 const CONFIG = {
-    speed: 0.5,
-    speedIncrement: 0.0001,
+    speed: 0.4, // Reduced starting speed
+    speedIncrement: 0.00005, // Slower acceleration
     laneWidth: 3,
     colors: {
         fog: 0x050505,
@@ -22,6 +22,7 @@ let score = 0;
 let isPlaying = false;
 let speed = CONFIG.speed;
 let lastTime = 0;
+let collisionGracePeriod = 0; // Grace period frame counter
 
 // cached DOM elements
 const container = document.getElementById('gameContainer');
@@ -77,11 +78,9 @@ function createEnvironment() {
     const gridHelper = new THREE.GridHelper(200, 100, CONFIG.colors.player, CONFIG.colors.grid);
     gridHelper.position.y = -0.5;
     gridHelper.position.z = -50;
-    // Animate grid sensation by moving it or creating multiple
     scene.add(gridHelper);
 
     // Moving Grid Logic is simulated by moving obstacles/player relative
-    // Actually, let's make an infinite floor that moves with UVs or just a big plane
     const planeGeo = new THREE.PlaneGeometry(200, 200, 20, 20);
     const planeMat = new THREE.MeshBasicMaterial({
         color: CONFIG.colors.floor,
@@ -123,6 +122,7 @@ function startGame() {
     // Reset state
     resetGame();
     isPlaying = true;
+    collisionGracePeriod = 60; // 1 second grace period approx
 
     // UI Updates
     startScreen.classList.add('hidden');
@@ -157,9 +157,12 @@ function stopGame() {
 }
 
 function spawnObstacle() {
-    // Determine lane (-1, 0, 1) roughly
-    // We'll use random X within range
-    const xPos = (Math.random() - 0.5) * CONFIG.laneWidth * 3;
+    // More structured spawning logic to avoid walls
+    // Divide width into 3 lanes: -3, 0, +3
+    const lanes = [-3, 0, 3];
+    const laneIndex = Math.floor(Math.random() * lanes.length);
+    // Add some jitter
+    const xPos = lanes[laneIndex] + (Math.random() - 0.5);
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshPhongMaterial({
@@ -185,14 +188,17 @@ function spawnObstacle() {
 function update(time) {
     if (!isPlaying) return;
 
-    const delta = (time - lastTime) / 16.67; // Normalize to ~60fps
+    const delta = Math.min((time - lastTime) / 16.67, 3); // Normalize to ~60fps, cap at 3x
     lastTime = time;
+
+    // Grace Period
+    if (collisionGracePeriod > 0) collisionGracePeriod--;
 
     // 1. Move Obstacles
     speed += CONFIG.speedIncrement * delta;
 
-    // Spawn logic: approximate distance or time
-    if (Math.random() < 0.03 * delta) {
+    // Spawn logic: Reduced rate (0.02)
+    if (Math.random() < 0.02 * delta) {
         spawnObstacle();
     }
 
@@ -205,16 +211,21 @@ function update(time) {
         obs.rotation.y += obs.userData.rotSpeed.y * delta;
 
         // Collision detection
-        // Simple AABB box check
-        const playerBox = new THREE.Box3().setFromObject(player);
-        const obsBox = new THREE.Box3().setFromObject(obs);
+        if (collisionGracePeriod <= 0) {
+            const playerBox = new THREE.Box3().setFromObject(player);
+            // Manually adjust box to be smaller (ignore glow/engine)
+            // Centered at player position, size roughly 0.6
+            const hitSize = 0.3;
+            playerBox.min.set(player.position.x - hitSize, -0.5, player.position.z - hitSize);
+            playerBox.max.set(player.position.x + hitSize, 0.5, player.position.z + hitSize);
 
-        // Shrink player box slightly for forgiveness
-        playerBox.expandByScalar(-0.1);
+            const obsBox = new THREE.Box3().setFromObject(obs);
+            obsBox.expandByScalar(-0.1); // Slightly smaller obstacle hitbox
 
-        if (playerBox.intersectsBox(obsBox)) {
-            stopGame();
-            return;
+            if (playerBox.intersectsBox(obsBox)) {
+                stopGame();
+                return;
+            }
         }
 
         // Remove if behind camera
@@ -226,7 +237,7 @@ function update(time) {
         }
     }
 
-    // 2. Camera sway (optional)
+    // 2. Camera sway
     camera.position.x += (player.position.x / 4 - camera.position.x) * 0.05;
 }
 
@@ -237,7 +248,7 @@ function updateScore(val) {
 function animate(time) {
     if (!isPlaying) return;
 
-    requestAnimationFrame(animate);
+    animationId = requestAnimationFrame(animate);
     update(time);
     renderer.render(scene, camera);
 }
