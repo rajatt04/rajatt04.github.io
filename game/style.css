@@ -145,8 +145,8 @@
     #game {
         /* Pull left to cover rail area */
         margin-left: -80px !important;
-        /* Increase width to compensate for left pull AND fill right side */
-        width: calc(100% + 80px) !important;
+        /* Force full viewport width to fix right side gap */
+        width: 100vw !important;
         padding-left: 0 !important;
         left: 0 !important;
     }
