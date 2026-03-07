@@ -119,8 +119,8 @@ const priceVals = document.querySelectorAll('.price-val');
 const pricePeriods = document.querySelectorAll('.period');
 
 const prices = {
-    monthly: [50, 250, 500],
-    yearly: [500, 2500, 5000]
+    monthly: [5, 25, 50],
+    yearly: [50, 250, 500]
 };
 
 if (billingToggle) {

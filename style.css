@@ -1635,7 +1635,7 @@ input:checked+.slider:before {
 .connect-card-wrapper {
     flex: 1;
     perspective: 1000px;
-    transform-style: preserve-3d;
+    z-index: 10;
 }
 
 .connect-card {
