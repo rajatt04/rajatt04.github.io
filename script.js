@@ -4,7 +4,7 @@ const projects = [
         title: "StudyMate",
         desc: "A comprehensive management tool for students and faculty featuring CRUD operations for assignments and notices.",
         tags: ["Kotlin", "Management", "CRUD"],
-        link: "https://github.com/rajatt04/StudyMateAlpha",
+        link: "https://github.com/rajatt04/StudyMate",
         emoji: "📚"
     },
     {
@@ -27,6 +27,13 @@ const projects = [
         tags: ["Kotlin", "Jetpack Compose", "UI/UX"],
         link: "https://github.com/rajatt04/Creamie",
         emoji: "🎨"
+    },
+    {
+        title: "ReTailX",
+        desc: "🛍️ Why pay for expensive POS software? ReTailX is a production-grade Android retail management system.",
+        tags: ["Kotlin", "XML", "Store Management"],
+        link: "https://github.com/rajatt04/ReTailX",
+        emoji: "🏪"
     }
 ];
 
