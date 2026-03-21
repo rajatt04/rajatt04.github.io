@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dopamine • Kevat Rajat</title>
+    <meta name="description" content="Dopamine - Ad-free YouTube experience with background playback.">
+    <!-- Devicon & Material Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../project.css">
+    <style>
+        :root {
+            --accent-color: #2196F3;
+            --accent-glow: rgba(33, 150, 243, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="project-nav">
+        <a href="../../index.html#projects" class="back-btn">
+            <span class="material-symbols-rounded">arrow_back</span>
+            Portfolio
+        </a>
+        <a href="https://github.com/rajatt04/Dopamine" target="_blank" class="action-btn">
+            <i class="devicon-github-original"></i> View Source
+        </a>
+    </nav>
+
+    <section class="hero-section fade-up">
+        <div class="hero-bg-glow"></div>
+        <div class="app-badge"><span class="material-symbols-rounded" style="font-size: 16px; margin-right: 6px;">code_blocks</span> Open Source</div>
+        <h1 class="app-title">Dopamine</h1>
+        <p class="app-tagline">Ad-free YouTube experience with background playback.</p>
+        
+        <div class="hero-actions">
+            <a href="#overview" class="action-btn primary">Explore Project</a>
+        </div>
+
+        <div class="hero-visual fade-up">
+            <img src="../../images/Dopamine/Screenshot_20260318_095738.jpg" alt="Dopamine Home Screen">
+        </div>
+    </section>
+
+    <section id="overview" class="fade-up">
+        <div class="overview-content">
+            <div>
+                <h2 class="overview-title">The Overview</h2>
+                <div style="width: 60px; height: 4px; background: var(--accent-color); margin-bottom: 24px; border-radius: 2px;"></div>
+                <p class="overview-text">
+                    Dopamine focuses on delivering uninterrupted multimedia consumption. Designed strictly for power users needing a lightweight media client, it strips out extraneous UI, prioritizing speed and smooth background audio capability.
+                </p>
+                <br>
+                <div class="tech-pill" style="display: inline-flex;">
+                    <span class="material-symbols-rounded">account_tree</span>
+                    MVI + Coroutine Flows
+                </div>
+            </div>
+            
+            <div class="challenges-list">
+                <div class="challenge-item">
+                    <h3 class="challenge-title">Background Payout Isolation</h3>
+                    <p class="challenge-desc">Utilized Android Foreground Services and the MediaSession framework to prevent system-kill during deep doze.</p>
+                </div>
+                <div class="challenge-item">
+                    <h3 class="challenge-title">API Rate Limiting</h3>
+                    <p class="challenge-desc">Implemented intelligent local caching using Room DB to drastically reduce redundant YouTube API data calls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center; margin-bottom: 60px;">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">audio_file</span></div>
+                <h3 class="feature-title">Background Audio</h3>
+                <p style="color: var(--text-secondary);">Seamlessly switches to audio-only streaming when the app is minimized.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">block</span></div>
+                <h3 class="feature-title">No Display Ads</h3>
+                <p style="color: var(--text-secondary);">Native ad-blocking rules applied directly to video players.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">picture_in_picture_alt</span></div>
+                <h3 class="feature-title">Picture-in-Picture</h3>
+                <p style="color: var(--text-secondary);">Watch videos in a floating window while utilizing other applications.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">download</span></div>
+                <h3 class="feature-title">Video Downloading</h3>
+                <p style="color: var(--text-secondary);">Cache videos securely for fully offline playback capabilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center; margin-bottom: 60px;">Interface & Experience</h2>
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095738.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Home Feed</h3>
+                    <p class="showcase-desc">Showcasing ad-free curated video recommendations.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095741.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Active Playback</h3>
+                    <p class="showcase-desc">Immersive viewing experience with minimal UI distraction.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095745.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Background Audio</h3>
+                    <p class="showcase-desc">Audio mode actively playing while browsing other applications.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095901.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Picture-in-Picture</h3>
+                    <p class="showcase-desc">Floating mini-player window allowing seamless mobile multitasking.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095930.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Download Manager</h3>
+                    <p class="showcase-desc">Interface displaying active and completed offline video saves.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_095945.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Custom Playlists</h3>
+                    <p class="showcase-desc">Intuitive interface for organizing and queueing saved media.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100000.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Interactive Controls</h3>
+                    <p class="showcase-desc">Optimized gestures and interactive controls for one-handed use.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100004.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Intelligent Search</h3>
+                    <p class="showcase-desc">Search functionality displaying instant query suggestions.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100014.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Streaming Options</h3>
+                    <p class="showcase-desc">Settings menu to quickly toggle streaming and download resolutions.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100025.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Channel Profile</h3>
+                    <p class="showcase-desc">Detailed view showcasing recent subscription uploads and details.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100029.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Comments Thread</h3>
+                    <p class="showcase-desc">Comments section utilizing high-speed local caching for smooth scrolling.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100058.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Dark Mode Interface</h3>
+                    <p class="showcase-desc">Deep black reading interface perfectly tailored for nighttime browsing.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/Dopamine/Screenshot_20260318_100117.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Advanced Playback</h3>
+                    <p class="showcase-desc">Playback speed modifiers and audio equalization settings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center;">Technology Stack</h2>
+        <div class="tech-container">
+            <div class="tech-pill"><i class="devicon-kotlin-plain"></i> Kotlin</div>
+            <div class="tech-pill"><i class="devicon-youtube-plain"></i> YouTube API</div>
+            <div class="tech-pill"><span class="material-symbols-rounded">data_object</span> XML</div>
+            <div class="tech-pill"><span class="material-symbols-rounded">air</span> Coroutines</div>
+        </div>
+    </section>
+
+    <footer class="project-footer">
+        <h2>Ready for production.</h2>
+        <div class="footer-actions">
+            <a href="https://github.com/rajatt04/Dopamine" target="_blank" class="action-btn primary">
+                <i class="devicon-github-original"></i> Review Source Code
+            </a>
+            <a href="mailto:kevatrajat29@gmail.com" class="action-btn">
+                <span class="material-symbols-rounded">mail</span> Discuss a Project
+            </a>
+        </div>
+    </footer>
+
+    <script src="../project.js"></script>
+</body>
+</html>

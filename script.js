@@ -258,15 +258,21 @@ projects.forEach(project => {
                 ${techStackHtml}
             </div>
             
-            ${project.sourceCodeUrl ? `
-            <a href="${project.sourceCodeUrl}" target="_blank" class="m3-btn m3-btn-tonal m3-view-code-btn">
-                <span>View Code</span>
-                <span class="material-symbols-rounded">arrow_forward</span>
-            </a>` : `
-            <button disabled class="m3-btn m3-btn-tonal m3-view-code-btn disabled">
-                <span>Private Repository</span>
-                <span class="material-symbols-rounded">lock</span>
-            </button>`}
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+                <a href="projects/${project.name === 'ReTailX' ? 'RetailX' : project.name}/index.html" class="m3-btn m3-btn-filled m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none;">
+                    <span>More...</span>
+                    <span class="material-symbols-rounded">arrow_forward</span>
+                </a>
+                ${project.sourceCodeUrl ? `
+                <a href="${project.sourceCodeUrl}" target="_blank" class="m3-btn m3-btn-tonal m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none;">
+                    <span>View Code</span>
+                    <span class="material-symbols-rounded">code</span>
+                </a>` : `
+                <button disabled class="m3-btn m3-btn-tonal m3-view-code-btn disabled" style="flex: 1; justify-content: center;">
+                    <span>Private</span>
+                    <span class="material-symbols-rounded">lock</span>
+                </button>`}
+            </div>
         </div>
     `;
     

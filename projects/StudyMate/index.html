@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMate • Kevat Rajat</title>
+    <meta name="description" content="StudyMate - Student & faculty management tool.">
+    <!-- Devicon & Material Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link rel="stylesheet" href="../project.css">
+    <style>
+        :root {
+            --accent-color: #4CAF50;
+            --accent-glow: rgba(76, 175, 80, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="project-nav">
+        <a href="../../index.html#projects" class="back-btn">
+            <span class="material-symbols-rounded">arrow_back</span>
+            Portfolio
+        </a>
+        <a href="https://github.com/rajatt04/StudyMate" target="_blank" class="action-btn">
+            <i class="devicon-github-original"></i> View Source
+        </a>
+    </nav>
+
+    <section class="hero-section fade-up">
+        <div class="hero-bg-glow"></div>
+        <div class="app-badge"><span class="material-symbols-rounded" style="font-size: 16px; margin-right: 6px;">verified</span> Completed</div>
+        <h1 class="app-title">StudyMate</h1>
+        <p class="app-tagline">Student & faculty management tool.</p>
+        
+        <div class="hero-actions">
+            <a href="#overview" class="action-btn primary">Explore Project</a>
+        </div>
+
+        <div class="hero-visual fade-up">
+            <img src="../../images/StudyMate/Screenshot_20260318_093102.jpg" alt="StudyMate Dashboard">
+        </div>
+    </section>
+
+    <section id="overview" class="fade-up">
+        <div class="overview-content">
+            <div>
+                <h2 class="overview-title">The Overview</h2>
+                <div style="width: 60px; height: 4px; background: var(--accent-color); margin-bottom: 24px; border-radius: 2px;"></div>
+                <p class="overview-text">
+                    A streamlined platform to manage classroom communications seamlessly. StudyMate handles student records, faculty announcements, and acts as a central hub for all assignment CRUD operations and critical notices.
+                </p>
+                <br>
+                <div class="tech-pill" style="display: inline-flex;">
+                    <span class="material-symbols-rounded">account_tree</span>
+                    MVVM + Clean Architecture
+                </div>
+            </div>
+            
+            <div class="challenges-list">
+                <div class="challenge-item">
+                    <h3 class="challenge-title">Real-time Synchronization</h3>
+                    <p class="challenge-desc">Implemented Firebase Realtime DB listeners to ensure notices arrive to students instantly without refreshing.</p>
+                </div>
+                <div class="challenge-item">
+                    <h3 class="challenge-title">Role-based Security</h3>
+                    <p class="challenge-desc">Leveraged Firebase Custom Claims to securely route users to either the Faculty Dashboard or Student Hub upon login.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center; margin-bottom: 60px;">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">notifications_active</span></div>
+                <h3 class="feature-title">Real-time Notices Panel</h3>
+                <p style="color: var(--text-secondary);">Instant communication architecture built with Firebase nodes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">assignment</span></div>
+                <h3 class="feature-title">Assignments CRUD APIs</h3>
+                <p style="color: var(--text-secondary);">Create, Read, Update, and Delete assignments with file attachments.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><span class="material-symbols-rounded">admin_panel_settings</span></div>
+                <h3 class="feature-title">Faculty Dashboard</h3>
+                <p style="color: var(--text-secondary);">Dedicated interface for teachers to manage student groups and exams.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center; margin-bottom: 60px;">Interface & Experience</h2>
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093102.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Student Hub Dashboard</h3>
+                    <p class="showcase-desc">Overview showing active assignments and pending critical notices.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093105.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Real-Time Notice Board</h3>
+                    <p class="showcase-desc">Detailed view of announcements with priority flags and timestamps.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093107.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Assignment Submission</h3>
+                    <p class="showcase-desc">Streamlined interface supporting direct file attachments and notes.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093117.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Faculty Control Center</h3>
+                    <p class="showcase-desc">Tools for broadcasting announcements to specific student groups.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_2026_0318_093254.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Data Export Engine</h3>
+                    <p class="showcase-desc">Functionality allowing faculty to download grades as standard CSV files.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093259.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Performance Tracking</h3>
+                    <p class="showcase-desc">Visual charts mapping student academic grades over the semester.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_093305.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Grading Rubric</h3>
+                    <p class="showcase-desc">Quick-action interface allowing rapid assignment evaluations.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_2026_0318_093315.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Administrative Panel</h3>
+                    <p class="showcase-desc">System-wide control for managing academic terms and assignments.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095200.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Student Profile</h3>
+                    <p class="showcase-desc">Comprehensive page detailing attendance records and academic standing.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095242.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Interactive Calendar</h3>
+                    <p class="showcase-desc">Monthly view intelligently highlighting upcoming submission deadlines.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095245.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Course Repository</h3>
+                    <p class="showcase-desc">Centralized storage for downloading lecture notes and resources.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095344.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Integrated Messaging</h3>
+                    <p class="showcase-desc">Secure system for direct student-faculty, course-related communication.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095409.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Class Analytics</h3>
+                    <p class="showcase-desc">Dynamic dashboard providing insights into class average performance.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095447.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Preference Settings</h3>
+                    <p class="showcase-desc">Customizable menu for notification alerts and app behavior.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095523.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">User Onboarding</h3>
+                    <p class="showcase-desc">Sleek introduction screens guiding new users through core features.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095603.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Secure Portal</h3>
+                    <p class="showcase-desc">Robust login interface backed by Firebase Authentication protocols.</p>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <img src="../../images/StudyMate/Screenshot_20260318_095611.jpg" loading="lazy" alt="App Screen">
+                <div class="showcase-caption">
+                    <h3 class="showcase-title">Role Configuration</h3>
+                    <p class="showcase-desc">Selection screen configuring strict access permissions upon registration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fade-up">
+        <h2 class="overview-title" style="text-align: center;">Technology Stack</h2>
+        <div class="tech-container">
+            <div class="tech-pill"><i class="devicon-kotlin-plain"></i> Kotlin</div>
+            <div class="tech-pill"><i class="devicon-firebase-plain"></i> Firebase</div>
+            <div class="tech-pill"><span class="material-symbols-rounded">data_object</span> XML</div>
+            <div class="tech-pill"><span class="material-symbols-rounded">architecture</span> MVVM</div>
+        </div>
+    </section>
+
+    <footer class="project-footer">
+        <h2>Ready for production.</h2>
+        <div class="footer-actions">
+            <a href="https://github.com/rajatt04/StudyMate" target="_blank" class="action-btn primary">
+                <i class="devicon-github-original"></i> Review Source Code
+            </a>
+            <a href="mailto:kevatrajat29@gmail.com" class="action-btn">
+                <span class="material-symbols-rounded">mail</span> Discuss a Project
+            </a>
+        </div>
+    </footer>
+
+    <script src="../project.js"></script>
+</body>
+</html>
