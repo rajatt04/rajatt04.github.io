@@ -1,18 +1,17 @@
-// Project Data for Portfolio
 const projects = [
     {
         id: "1",
         name: "StudyMate",
-        tagline: "Student & faculty management tool.",
-        overview: "A streamlined platform to manage classroom communications seamlessly. StudyMate handles student records, faculty announcements, and acts as a central hub for all assignment CRUD operations and critical notices.",
-        keyFeatures: ["Real-time Notices Panel", "Assignments CRUD APIs", "Faculty Dashboard", "Student Progress Tracking", "File Attachments"],
-        techStack: ["Kotlin", "Firebase", "XML", "MVVM"],
-        architecture: "MVVM + Repository + Clean Architecture",
+        tagline: "EdTech platform for streamlined campus management.",
+        overview: "A comprehensive digital solution designed to digitize classroom communications. StudyMate bridges the gap between faculty and students, centralizing records, seamless assignment delivery, and instant critical notice broadcasting.",
+        keyFeatures: ["Real-time Dashboard", "Secure File Management", "Role-based Portals", "Student Progress Analytics", "Automated Workflows"],
+        techStack: ["Native Android", "Cloud Database", "Secure Auth", "Real-time Sync"],
+        architecture: "Scalable Cloud Architecture",
         challengesSolved: [
-            { title: "Real-time Synchronization", solution: "Implemented Firebase Realtime DB listeners to ensure notices arrive to students instantly without refreshing." },
-            { title: "Role-based Security", solution: "Leveraged Firebase Custom Claims to securely route users to either the Faculty Dashboard or Student Hub upon login." }
+            { title: "Zero Latency Updates", solution: "Implemented robust real-time cloud listeners to ensure thousands of students receive critical updates instantly across all devices." },
+            { title: "Enterprise Grade Security", solution: "Engineered secure role-based portals to guarantee that sensitive academic data remains strictly siloed and protected." }
         ],
-        status: { label: "Completed", color: "#4CAF50" },
+        status: { label: "Deployed", color: "#1E8E3E" },
         images: [
             "images/StudyMate/Screenshot_20260318_093102.jpg",
             "images/StudyMate/Screenshot_20260318_093105.jpg",
@@ -37,16 +36,16 @@ const projects = [
     {
         id: "2",
         name: "Dopamine",
-        tagline: "Ad-free YouTube experience with background playback.",
-        overview: "Dopamine focuses on delivering uninterrupted multimedia consumption. Designed strictly for power users needing a lightweight media client, it strips out extraneous UI, prioritizing speed and smooth background audio capability.",
-        keyFeatures: ["Background Audio Playback", "No Display Ads", "Picture-in-Picture Mode", "Video Downloading", "Custom Playlists"],
-        techStack: ["Kotlin", "YouTube API", "XML", "Coroutines"],
-        architecture: "MVI + Coroutine Flows",
+        tagline: "Premium media streaming and background playback service.",
+        overview: "A lightweight, heavily optimized multimedia client designed for uninterrupted content consumption. Dopamine strips away UI clutter to focus entirely on user retention, background playback capabilities, and premium media delivery.",
+        keyFeatures: ["Uninterrupted Playback", "Picture-in-Picture Support", "Offline Media Delivery", "Custom User Playlists", "High-Fidelity Audio"],
+        techStack: ["Video Streaming", "Media Session API", "Background Sync", "Offline Storage"],
+        architecture: "Optimized Media Delivery",
         challengesSolved: [
-            { title: "Background Payout Isolation", solution: "Utilized Android Foreground Services and the MediaSession framework to prevent system-kill during deep doze." },
-            { title: "API Rate Limiting", solution: "Implemented intelligent local caching using Room DB to drastically reduce redundant YouTube API data calls." }
+            { title: "Deep Doze Isolation", solution: "Engineered resilient background services to maintain audio streams even when the host operating system attempts aggressive battery optimizations." },
+            { title: "Data Cost Reduction", solution: "Designed intelligent local caching systems to drastically minimize redundant cloud requests, saving bandwidth costs and improving speed." }
         ],
-        status: { label: "Open Source", color: "#2196F3" },
+        status: { label: "Featured", color: "#1A73E8" },
         images: [
             "images/Dopamine/Screenshot_20260318_095738.jpg",
             "images/Dopamine/Screenshot_20260318_095741.jpg",
@@ -67,16 +66,16 @@ const projects = [
     {
         id: "3",
         name: "FitByKit",
-        tagline: "Health app with step counter & meal planning.",
-        overview: "FitByKit is a personal fitness companion offering everything from built-in workout videos to diet planning. Utilizing native device sensors, it provides highly accurate pedometer metrics integrated closely with user fitness goals.",
-        keyFeatures: ["Sensor-based Pedometer", "HD Workout Video Library", "Calorie Intake Tracker", "Automated Meal Planning", "Weekly Progress Charts"],
-        techStack: ["Kotlin", "Health APIs", "XML", "RoomDB"],
-        architecture: "MVVM + WorkManager Architecture",
+        tagline: "Health and wellness platform with real-time tracking.",
+        overview: "A comprehensive digital health companion that interfaces directly with physical biosensors. From high-definition workout libraries to automated meal planning, FitByKit provides users with a cohesive ecosystem to reach their wellness goals.",
+        keyFeatures: ["Hardware Sensor Integration", "HD Video Streaming", "Nutrition Management", "Progress Visualization", "Automated Planning"],
+        techStack: ["Health APIs", "IoT Sensors", "Video CDN", "Local Database"],
+        architecture: "Sensor-Driven Architecture",
         challengesSolved: [
-            { title: "Battery Drain on Step Count", solution: "Offloaded continuous sensor tracking logic over to efficient WorkManager cron jobs combined with Hardware Step Counter." },
-            { title: "Streaming Video Caching", solution: "Integrated Google ExoPlayer with custom cache proxies to allow lag-free scrubing of fitness videos." }
+            { title: "Battery Efficiency", solution: "Offloaded continuous sensor tracking logic to efficient cron jobs, extending user device battery life without sacrificing data accuracy." },
+            { title: "Seamless Video Scrubbing", solution: "Integrated custom streaming cache proxies to allow lag-free seeking through high-definition fitness content." }
         ],
-        status: { label: "Completed", color: "#4CAF50" },
+        status: { label: "Client Success", color: "#1E8E3E" },
         images: [
             "images/FitByKit/Screenshot_20260318_100219.jpg",
             "images/FitByKit/Screenshot_20260318_100222.jpg",
@@ -100,16 +99,16 @@ const projects = [
     {
         id: "4",
         name: "Creamie",
-        tagline: "Modern Jetpack Compose wallpaper engine.",
-        overview: "Creamie sets a new standard for aesthetic application design by heavily relying on Jetpack Compose and Material 3 principles. It provides stunning smart-filtered wallpapers that adapt the entire app's DOM theming upon selection.",
-        keyFeatures: ["One-Tap Apply Logic", "Smart Color Filters", "M3 Dynamic Theming", "Favorites Collection", "High-Resolution Tiling"],
-        techStack: ["Kotlin", "Jetpack Compose", "UI/UX", "Coil"],
-        architecture: "MVVM + State Hoisting",
+        tagline: "High-performance visual personalization engine.",
+        overview: "An aesthetic application framework that sets a new bar for digital product design. Creamie intelligently processes 4K visual assets and dynamically adapts the entire application interface to match user-selected elements.",
+        keyFeatures: ["Dynamic Color Theming", "4K Asset Delivery", "Algorithmic Filtering", "Curated Collections", "One-Tap Processing"],
+        techStack: ["Modern UI Toolkit", "Image Processing", "Dynamic Theming", "Memory Caching"],
+        architecture: "Dynamic UI Architecture",
         challengesSolved: [
-            { title: "Dynamic Theme Extraction", solution: "Extracted pixel color palettes via custom algorithms to dynamically tint Compose MaterialTheme on the fly." },
-            { title: "Jank-free List Scrolling", solution: "Optimized Coil memory caching policies to handle massive grids of 4K imagery without dropping UI frames." }
+            { title: "On-the-fly Palette Extraction", solution: "Crafted algorithms to instantly extract dominant colors from dense images, seamlessly applying them to the UI layer at runtime." },
+            { title: "Lag-Free Asset Rendering", solution: "Developed aggressive memory caching strategies to continuously render massive grids of high-resolution imagery without dropping frames." }
         ],
-        status: { label: "In Progress", color: "#FF9800" },
+        status: { label: "In Development", color: "#F29900" },
         images: [
             "images/Creamie/Screenshot_20260318_100914.jpg",
             "images/Creamie/Screenshot_20260318_100916.jpg",
@@ -128,16 +127,16 @@ const projects = [
     {
         id: "5",
         name: "ReTailX",
-        tagline: "Production-grade retail management system.",
-        overview: "A powerhouse Android enterprise tool for POS (Point of Sale) operation. ReTailX handles complex inventory databases on location while transparently syncing data safely to a remote cloud ledger. Built for modern retail environments.",
-        keyFeatures: ["Inventory Control", "Cloud Database Sync", "Hardware Barcode Scanning", "Offline-First Support", "Sales Receipt Generation"],
-        techStack: ["Kotlin", "XML", "Store Management", "Retrofit"],
-        architecture: "Repository + SyncAdapters + MVVM",
+        tagline: "Enterprise Point of Sale & Inventory Management.",
+        overview: "A powerhouse enterprise tool designed to streamline real-world retail operations. ReTailX replaces traditional clunky POS registers with a modern mobile solution, driving down hardware costs and speeding up checkout times.",
+        keyFeatures: ["Inventory Governance", "Cloud Synchronization", "Machine Vision Scanning", "Resilient Offline Mode", "Automated Billing"],
+        techStack: ["Enterprise Database", "Machine Learning", "Offline-First", "Business Logic"],
+        architecture: "Distributed Enterprise System",
         challengesSolved: [
-            { title: "Offline Resiliency", solution: "Created a robust Room DB schema handling local UUID generation and queued all missing syncs until network restoration." },
-            { title: "Rapid Barcode Parsing", solution: "Integrated Google ML Kit Vision APIs directly into CameraX for instantaneous barcode bounding-box acquisition." }
+            { title: "Uninterrupted Business Continuity", solution: "Architected an offline-first infrastructure. All transactions queue locally and transparently sync upon network restoration." },
+            { title: "Rapid Product Acquisition", solution: "Integrated cutting-edge machine vision models directly into the camera feed for instantaneous and accurate barcode parsing." }
         ],
-        status: { label: "Completed", color: "#4CAF50" },
+        status: { label: "Deployed", color: "#1E8E3E" },
         images: [
             "images/RetailX/Screenshot_20260318_101236.jpg",
             "images/RetailX/Screenshot_20260318_101239.jpg",

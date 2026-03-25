@@ -4,37 +4,35 @@
  */
 
 :root {
-    /* Color Palette - Dark/Deep Theme Base */
-    --md-sys-color-primary: #D0BCFF;
-    /* M3 Default Purple-ish Light for Dark mode contrast, or custom */
-    --md-sys-color-on-primary: #381E72;
-    --md-sys-color-primary-container: #4F378B;
-    --md-sys-color-on-primary-container: #EADDFF;
+    /* Color Palette - Light/Day Theme Base (Google Design Inspired) */
+    --md-sys-color-primary: #1A73E8; /* Google Blue */
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #D2E3FC;
+    --md-sys-color-on-primary-container: #174EA6;
 
-    --md-sys-color-secondary: #CCC2DC;
-    --md-sys-color-on-secondary: #332D41;
-    --md-sys-color-secondary-container: #4A4458;
-    --md-sys-color-on-secondary-container: #E8DEF8;
+    --md-sys-color-secondary: #5F6368;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #F1F3F4;
+    --md-sys-color-on-secondary-container: #202124;
 
-    --md-sys-color-tertiary: #EFB8C8;
-    --md-sys-color-on-tertiary: #492532;
-    --md-sys-color-tertiary-container: #633B48;
-    --md-sys-color-on-tertiary-container: #FFD8E4;
+    --md-sys-color-tertiary: #1E8E3E; /* Google Green */
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #CEEAD6;
+    --md-sys-color-on-tertiary-container: #0D652D;
 
-    --md-sys-color-surface: #141218;
-    --md-sys-color-on-surface: #E6E1E5;
-    --md-sys-color-surface-variant: #49454F;
-    --md-sys-color-on-surface-variant: #CAC4D0;
+    --md-sys-color-surface: #FFFFFF;
+    --md-sys-color-on-surface: #202124;
+    --md-sys-color-surface-variant: #F8F9FA;
+    --md-sys-color-on-surface-variant: #5F6368;
 
-    --md-sys-color-outline: #938F99;
-    --md-sys-color-outline-variant: #49454F;
+    --md-sys-color-outline: #DADCE0;
+    --md-sys-color-outline-variant: #E8EAED;
 
-    --md-sys-color-background: #000000;
-    /* Deep black/grey for modern feel */
-    --md-sys-color-on-background: #E6E1E5;
+    --md-sys-color-background: #FFFFFF;
+    --md-sys-color-on-background: #202124;
 
-    /* Custom Accents for Android Identity */
-    --android-green: #3DDC84;
+    /* Custom Accents */
+    --android-green: #1E8E3E;
 
     /* Shape */
     --md-sys-shape-corner-extra-small: 4px;
@@ -45,9 +43,9 @@
     --md-sys-shape-corner-full: 9999px;
 
     /* Elevation */
-    --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-    --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-    --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+    --md-sys-elevation-1: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    --md-sys-elevation-2: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+    --md-sys-elevation-3: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
 }
 
 /* Base Setup */
@@ -139,8 +137,7 @@ body.m3-body {
     left: 0;
     width: 100%;
     height: 64px;
-    background-color: rgba(20, 18, 24, 0.8);
-    /* Translucent surface */
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
@@ -202,8 +199,7 @@ body.m3-body {
 }
 
 .drawer-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    /* Subtle hover */
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .drawer-item.active {
@@ -275,27 +271,7 @@ section {
 
 /* Ambient Glow Background */
 .ambient-glow {
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(208, 188, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
-    z-index: 1;
-    filter: blur(60px);
-    animation: glow-pulse 6s infinite alternate;
-}
-
-@keyframes glow-pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1.2);
-        opacity: 0.8;
-    }
+    display: none;
 }
 
 .hero-content {
@@ -311,12 +287,7 @@ section {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #D0BCFF, #381E72, #D0BCFF);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: gradient-flow 3s linear infinite;
+    color: var(--md-sys-color-primary);
     font-weight: 800;
 }
 
@@ -348,14 +319,14 @@ section {
     align-items: center;
     gap: 12px;
     padding: 10px 20px;
-    background: #0f0f11;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #FFFFFF;
+    border: 1px solid var(--md-sys-color-outline);
     border-radius: 100px;
-    color: #e2e2e2;
+    color: var(--md-sys-color-on-surface);
     font-weight: 500;
     font-size: 15px;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--md-sys-elevation-1);
 }
 
 .status-dot {
@@ -429,16 +400,14 @@ section {
 .device-frame {
     width: 280px;
     height: 580px;
-    background: #000;
-    border: 12px solid #2d2d2d;
+    background: #FFFFFF;
+    border: 12px solid #DADCE0;
     border-radius: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotateY(-15deg) rotateX(10deg);
-    box-shadow:
-        -20px 20px 40px rgba(0, 0, 0, 0.5),
-        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    box-shadow: var(--md-sys-elevation-3);
     overflow: hidden;
     z-index: 5;
     transition: transform 0.3s;
@@ -499,13 +468,13 @@ section {
 /* Floating Cards */
 .floating-card {
     position: absolute;
-    background: rgba(30, 30, 30, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--md-sys-color-outline-variant);
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    color: #fff;
+    box-shadow: var(--md-sys-elevation-2);
+    color: var(--md-sys-color-on-surface);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -881,15 +850,13 @@ input:checked+.slider:before {
 
 /* Ultimate Cards */
 .ultimate-card {
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Default border for others */
+    background: #FFFFFF;
+    border: 1px solid var(--md-sys-color-outline-variant);
     border-radius: 28px;
     padding: 32px;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--md-sys-elevation-1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
@@ -926,11 +893,10 @@ input:checked+.slider:before {
     content: '';
     position: absolute;
     inset: 3px;
-    background: rgba(35, 30, 40, 0.95);
-    /* Dark background to pop the border */
+    background: #FFFFFF;
+    /* Light background to pop the border */
     border-radius: 25px;
     z-index: -1;
-    backdrop-filter: blur(20px);
 }
 
 @keyframes rotate-border {
@@ -1339,15 +1305,14 @@ input:checked+.slider:before {
 }
 
 .tech-card {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #FFFFFF;
+    border: 1px solid var(--md-sys-color-outline-variant);
     border-radius: 24px;
     padding: 24px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--md-sys-elevation-1);
 }
 
 .tech-card::before {
@@ -1400,7 +1365,7 @@ input:checked+.slider:before {
     gap: 8px;
     width: 80px;
     height: 80px;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 16px;
     border: 1px solid transparent;
     transition: all 0.3s ease;
@@ -1725,14 +1690,7 @@ input:checked+.slider:before {
 }
 
 .connect-bg-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
+    display: none;
 }
 
 .connect-orb {
@@ -1791,11 +1749,9 @@ input:checked+.slider:before {
 .connect-card {
     min-height: 500px;
     border-radius: 24px;
-    background: rgba(30, 30, 35, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    background: #FFFFFF;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-2);
     padding: 40px;
     position: relative;
     /* overflow: hidden; Removed to fix 3D clickability */

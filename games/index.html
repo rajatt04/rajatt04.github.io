@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cyber Hover • Game | Kevat Rajat</title>
+	<meta name="description" content="Cyber Hover game by Kevat Rajat.">
+
+	<!-- Fonts: Roboto & Material Symbols -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+		rel="stylesheet" />
+
+	<!-- Custom Styles -->
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../game/style.css">
+</head>
+
+<body class="m3-body">
+
+	<!-- Shimmer Loading Overlay -->
+	<div id="shimmerOverlay" class="shimmer-overlay">
+		<div class="shimmer-content">
+			<span class="material-symbols-rounded shimmer-icon">android</span>
+			<h2 class="shimmer-text">Kevat Rajat</h2>
+			<div class="shimmer-bar"></div>
+		</div>
+	</div>
+
+	<!-- Navigation Drawer (Mobile) -->
+	<nav class="m3-drawer" id="navDrawer">
+		<div class="drawer-header">
+			<span class="m3-headline-small">Menu</span>
+			<button class="m3-icon-btn" id="closeDrawer" aria-label="Close menu">
+				<span class="material-symbols-rounded">close</span>
+			</button>
+		</div>
+		<div class="drawer-content">
+			<a href="../#home" class="drawer-item">
+				<span class="material-symbols-rounded">home</span>
+				<span class="label">Home</span>
+			</a>
+			<a href="../#tech" class="drawer-item">
+				<span class="material-symbols-rounded">code</span>
+				<span class="label">Tech Stack</span>
+			</a>
+			<a href="../#projects" class="drawer-item">
+				<span class="material-symbols-rounded">view_kanban</span>
+				<span class="label">Projects</span>
+			</a>
+			<a href="../#pricing" class="drawer-item">
+				<span class="material-symbols-rounded">monetization_on</span>
+				<span class="label">Pricing</span>
+			</a>
+			<a href="#game" class="drawer-item active">
+				<span class="material-symbols-rounded">sports_esports</span>
+				<span class="label">Game</span>
+			</a>
+			<a href="../#contact" class="drawer-item">
+				<span class="material-symbols-rounded">mail</span>
+				<span class="label">Contact</span>
+			</a>
+		</div>
+	</nav>
+	<div class="scrim" id="scrim"></div>
+
+	<!-- Top App Bar (Mobile/Tablet) -->
+	<header class="m3-top-app-bar">
+		<div class="container">
+			<button class="m3-icon-btn" id="openDrawer" aria-label="Open menu">
+				<span class="material-symbols-rounded">menu</span>
+			</button>
+			<span class="m3-title-large">Kevat Rajat</span>
+			<div class="actions">
+				<a href="https://github.com/rajatt04" target="_blank" class="m3-icon-btn" aria-label="GitHub">
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+						alt="GitHub" style="width: 24px; height: 24px; filter: grayscale(1);">
+				</a>
+			</div>
+		</div>
+	</header>
+
+	<!-- Navigation Rail/Bar (Desktop) -->
+	<aside class="m3-nav-rail">
+		<div class="rail-header">
+			<span class="material-symbols-rounded logo-icon">android</span>
+		</div>
+		<div class="rail-destinations">
+			<a href="../#home" class="rail-item" data-tooltip="Home">
+				<span class="indicator"><span class="material-symbols-rounded">home</span></span>
+				<span class="label">Home</span>
+			</a>
+			<a href="../#tech" class="rail-item" data-tooltip="Tech">
+				<span class="indicator"><span class="material-symbols-rounded">code</span></span>
+				<span class="label">Tech</span>
+			</a>
+			<a href="../#projects" class="rail-item" data-tooltip="Projects">
+				<span class="indicator"><span class="material-symbols-rounded">view_kanban</span></span>
+				<span class="label">Work</span>
+			</a>
+			<a href="../#pricing" class="rail-item" data-tooltip="Pricing">
+				<span class="indicator"><span class="material-symbols-rounded">monetization_on</span></span>
+				<span class="label">Pricing</span>
+			</a>
+			<a href="#game" class="rail-item active" data-tooltip="Game">
+				<span class="indicator"><span class="material-symbols-rounded">sports_esports</span></span>
+				<span class="label">Game</span>
+			</a>
+			<a href="../#contact" class="rail-item" data-tooltip="Contact">
+				<span class="indicator"><span class="material-symbols-rounded">mail</span></span>
+				<span class="label">Contact</span>
+			</a>
+		</div>
+		<div class="rail-footer">
+			<!-- Theme Toggle could go here -->
+		</div>
+	</aside>
+
+	<main class="main-content">
+		<!-- Game Section: Cyber Hover -->
+		<section id="game" class="section-game" style="padding-top: 100px; min-height: 100vh;">
+			<div class="section-header">
+				<h2 class="m3-headline-medium">Cyber Hover</h2>
+				<p class="m3-body-medium">Dodge obstacles in the quantum realm. <span
+						style="font-size:12px; opacity:0.7">(Desktop Recommended)</span></p>
+			</div>
+
+			<div class="game-container" id="gameContainer">
+				<div id="gameCanvas"></div>
+
+				<!-- HUD -->
+				<div class="game-hud" id="scoreHud">
+					SCORE: <span id="scoreValue">0</span>
+				</div>
+
+				<!-- Start Screen -->
+				<div class="game-ui start-screen" id="startScreen">
+					<h1 class="game-title">Cyber Hover</h1>
+					<p class="game-desc">Navigate the quantum realm. Avoid the red containment blocks.</p>
+
+					<div class="controls-hint-box">
+						<span class="material-symbols-rounded controls-icon">touch_app</span>
+						<span>Drag to Steer</span>
+						<span class="material-symbols-rounded controls-icon" style="margin-left:8px;">warning</span>
+						<span>Avoid Purple</span>
+					</div>
+
+					<button class="m3-btn m3-btn-filled full-width" onclick="window.gameStart()">
+						<span class="material-symbols-rounded">rocket_launch</span> Start Mission
+					</button>
+				</div>
+
+				<!-- Game Over Screen -->
+				<div class="game-ui game-over-screen hidden" id="gameOverScreen">
+					<h1 class="game-title" style="background: none; -webkit-text-fill-color: #FF5449; color: #FF5449;">
+						CRASHED</h1>
+					<p class="game-desc">Mission Failed. Final Score: <span id="finalScore"
+							style="color:#fff; font-weight:700;">0</span></p>
+
+					<button class="m3-btn m3-btn-tonal full-width" onclick="window.gameRestart()">
+						<span class="material-symbols-rounded">replay</span> Try Again
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<footer class="main-footer">
+			<p class="m3-body-small">&copy; 2026 Kevat Rajat. Built with Material 3 Expressive.</p>
+		</footer>
+	</main>
+
+	<!-- FAB for quick action -->
+	<button class="m3-fab" aria-label="Send Email" onclick="location.href='mailto:kevatrajat29@gmail.com'">
+		<span class="material-symbols-rounded">edit</span>
+	</button>
+
+	<!-- Snackbar -->
+	<div id="snackbar" class="m3-snackbar">Message Sent Successfully!</div>
+
+	<script src="../script.js"></script>
+	<script type="module" src="../game/logic.js"></script>
+</body>
+
+</html>
