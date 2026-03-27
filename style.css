@@ -376,192 +376,174 @@ section {
     z-index: 2;
 }
 
-.hero-3d-scene {
+.anime-cat {
     position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    animation: float-3d 6s ease-in-out infinite;
+    width: 300px;
+    height: 300px;
+    animation: float-cat 4s ease-in-out infinite;
+    z-index: 5;
 }
 
-@keyframes float-3d {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+@keyframes float-cat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-/* Device Frame */
-.device-frame {
-    width: 280px;
-    height: 580px;
-    background: #FFFFFF;
-    border: 12px solid #DADCE0;
-    border-radius: 40px;
+.cat-head {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 200px;
+    background: #fff;
+    border-radius: 130px 130px 80px 80px;
+    border: 8px solid #1a1a1a;
+    box-shadow: inset 0 -20px 0 rgba(0,0,0,0.05), inset 0 20px 0 rgba(0,0,0,0.02);
+    z-index: 2;
+    overflow: visible;
+}
+
+.cat-ear {
+    position: absolute;
+    top: -15px;
+    width: 0;
+    height: 0;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 80px solid #1a1a1a;
+    z-index: 1;
+}
+
+.cat-ear::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -30px;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 55px solid #ffb6c1;
+}
+
+.cat-ear.left {
+    left: -10px;
+    transform: rotate(-25deg);
+}
+
+.cat-ear.right {
+    right: -10px;
+    transform: rotate(25deg);
+}
+
+.cat-eye {
+    position: absolute;
+    top: 60px;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border: 6px solid #1a1a1a;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.cat-eye.left { left: 40px; }
+.cat-eye.right { right: 40px; }
+
+.cat-pupil {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotateY(-15deg) rotateX(10deg);
-    box-shadow: var(--md-sys-elevation-3);
-    overflow: hidden;
-    z-index: 5;
-    transition: transform 0.3s;
+    width: 45px;
+    height: 45px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    margin-top: -22.5px;
+    margin-left: -22.5px;
+    /* Eye tracking translation will be applied via JS style.transform */
+    /* Use a quick transition for smooth tracking */
+    transition: transform 0.05s linear; 
 }
 
-.device-frame:hover {
-    transform: translate(-50%, -50%) rotateY(0deg) rotateX(0deg) scale(1.02);
-}
-
-.device-screen {
-    width: 100%;
-    height: 100%;
-    background: var(--md-sys-color-surface);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Abstract App UI in Screen */
-.app-header {
-    height: 60px;
-    background: var(--md-sys-color-primary-container);
-    margin-bottom: 20px;
-}
-
-.app-hero {
-    height: 150px;
-    margin: 16px;
-    background: var(--md-sys-color-secondary-container);
-    border-radius: 16px;
-}
-
-.app-row {
-    height: 60px;
-    margin: 12px 16px;
-    background: var(--md-sys-color-surface-variant);
-    border-radius: 12px;
-}
-
-.app-row.short {
-    width: 60%;
-}
-
-.app-fab {
+.cat-sparkle.main {
     position: absolute;
-    bottom: 24px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
-    background: var(--md-sys-color-tertiary-container);
-    border-radius: 16px;
-    display: flex;
-    /* Center icon */
-    align-items: center;
-    justify-content: center;
-    color: var(--md-sys-color-on-tertiary-container);
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
 }
 
-/* Floating Cards */
-.floating-card {
+.cat-sparkle.minor {
     position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--md-sys-color-outline-variant);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: var(--md-sys-elevation-2);
-    color: var(--md-sys-color-on-surface);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    transform-style: preserve-3d;
+    bottom: 8px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
 }
 
-/* Card 1: Code */
-.card-1 {
-    top: 15%;
-    left: 0%;
-    transform: translateZ(-50px) rotateY(-10deg);
-    animation: float-card-1 8s infinite alternate;
+.cat-nose {
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 10px;
+    background: #ffb6c1;
+    border-radius: 8px 8px 16px 16px;
+    z-index: 3;
 }
 
-.code-keyword {
-    color: #ff79c6;
+.cat-mouth {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 15px;
+    z-index: 3;
 }
 
-.code-func {
-    color: #50fa7b;
+.cat-mouth::before, .cat-mouth::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-bottom: 4px solid #1a1a1a;
+    border-radius: 0 0 50% 50%;
 }
 
-/* Card 2: Jetpack */
-.card-2 {
-    bottom: 20%;
-    left: -10%;
-    transform: translateZ(50px) rotateY(15deg);
-    z-index: 6;
-    animation: float-card-2 7s infinite alternate-reverse;
+.cat-mouth::before { left: 0; border-right: 4px solid #1a1a1a; }
+.cat-mouth::after { right: 0; border-left: 4px solid #1a1a1a; }
+
+.cat-whisker {
+    position: absolute;
+    width: 45px;
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
 }
 
-.icon-box {
-    width: 32px;
-    height: 32px;
-    background: var(--android-green);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
+.cat-whiskers {
+    position: absolute;
+    top: 125px;
+    width: 50px;
+    height: 40px;
+    z-index: 3;
 }
 
-/* Card 3: Success */
-.card-3 {
-    top: 40%;
-    right: 0%;
-    /* Fixed clipping */
-    transform: translateZ(80px);
-    z-index: 6;
-    animation: float-card-3 5s infinite alternate;
-}
+.cat-whiskers.left { left: -20px; }
+.cat-whiskers.left .cat-whisker:nth-child(1) { top: 0; left: 10px; transform: rotate(10deg); }
+.cat-whiskers.left .cat-whisker:nth-child(2) { top: 15px; left: 5px; }
+.cat-whiskers.left .cat-whisker:nth-child(3) { top: 30px; left: 10px; transform: rotate(-10deg); }
 
-.success-icon {
-    color: var(--android-green);
-}
-
-/* Animation Keyframes for Specific Cards */
-@keyframes float-card-1 {
-    0% {
-        transform: translateZ(-50px) translateY(0);
-    }
-
-    100% {
-        transform: translateZ(-50px) translateY(-20px);
-    }
-}
-
-@keyframes float-card-2 {
-    0% {
-        transform: translateZ(50px) translateY(0);
-    }
-
-    100% {
-        transform: translateZ(50px) translateY(15px);
-    }
-}
-
-@keyframes float-card-3 {
-    0% {
-        transform: translateZ(80px) translateY(0);
-    }
-
-    100% {
-        transform: translateZ(80px) translateY(-10px);
-    }
-}
+.cat-whiskers.right { right: -20px; }
+.cat-whiskers.right .cat-whisker:nth-child(1) { top: 0; right: 10px; transform: rotate(-10deg); }
+.cat-whiskers.right .cat-whisker:nth-child(2) { top: 15px; right: 5px; }
+.cat-whiskers.right .cat-whisker:nth-child(3) { top: 30px; right: 10px; transform: rotate(10deg); }
 
 /* Mobile Responsive */
 @media (max-width: 900px) {
@@ -608,6 +590,28 @@ section {
 }
 
 /* Components */
+.m3-btn-download-glow {
+    background: linear-gradient(135deg, #1A73E8, #4285F4);
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: apk-pulse-glow 2s infinite;
+}
+.m3-btn-download-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.6);
+}
+.m3-btn-download-glow .material-symbols-rounded {
+    color: white !important;
+}
+
+@keyframes apk-pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(26, 115, 232, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(26, 115, 232, 0); }
+}
+
 .m3-btn {
     display: inline-flex;
     align-items: center;

@@ -31,7 +31,8 @@ const projects = [
             "images/StudyMate/Screenshot_2026_0318_093254.jpg",
             "images/StudyMate/Screenshot_2026_0318_093315.jpg"
         ],
-        sourceCodeUrl: "https://github.com/rajatt04/StudyMate"
+        sourceCodeUrl: "https://github.com/rajatt04/StudyMate",
+        downloadUrl: "https://github.com/rajatt04/StudyMate/releases/download/2.0/app-release.apk"
     },
     {
         id: "2",
@@ -61,7 +62,8 @@ const projects = [
             "images/Dopamine/Screenshot_20260318_100058.jpg",
             "images/Dopamine/Screenshot_20260318_100117.jpg"
         ],
-        sourceCodeUrl: "https://github.com/rajatt04/Dopamine"
+        sourceCodeUrl: "https://github.com/rajatt04/Dopamine",
+        downloadUrl: "https://github.com/rajatt04/Dopamine/releases/download/1.0/app-universal-release.apk"
     },
     {
         id: "3",
@@ -94,7 +96,8 @@ const projects = [
             "images/FitByKit/Screenshot_2026_0318_100623.jpg",
             "images/FitByKit/Screenshot_2026_0318_100728.jpg"
         ],
-        sourceCodeUrl: "https://github.com/rajatt04/FitByKit"
+        sourceCodeUrl: "https://github.com/rajatt04/FitByKit",
+        downloadUrl: "https://github.com/rajatt04/FitByKit/releases/download/ver1.4/app-release.apk"
     },
     {
         id: "4",
@@ -122,7 +125,8 @@ const projects = [
             "images/Creamie/Screenshot_20260318_101121.jpg",
             "images/Creamie/Screenshot_2026_0318_101134.jpg"
         ],
-        sourceCodeUrl: "https://github.com/rajatt04/Creamie"
+        sourceCodeUrl: "https://github.com/rajatt04/Creamie",
+        downloadUrl: "https://github.com/rajatt04/Creamie/releases/download/1.0.0/app-release.apk"
     },
     {
         id: "5",
@@ -171,7 +175,8 @@ const projects = [
             "images/RetailX/Screenshot_2026_0318_101644.jpg",
             "images/RetailX/Screenshot_2026_0318_101706.jpg"
         ],
-        sourceCodeUrl: null
+        sourceCodeUrl: "https://github.com/rajatt04/RetailX",
+        downloadUrl: "https://github.com/rajatt04/ReTailX/releases/download/1.0/app-release.apk"
     }
 ];
 
@@ -257,20 +262,25 @@ projects.forEach(project => {
                 ${techStackHtml}
             </div>
             
-            <div style="display: flex; gap: 8px; margin-top: 16px;">
-                <a href="projects/${project.name === 'ReTailX' ? 'RetailX' : project.name}/index.html" class="m3-btn m3-btn-filled m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>More...</span>
+            <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+                <a href="projects/${project.name === 'ReTailX' ? 'RetailX' : project.name}/index.html" class="m3-btn m3-btn-filled m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none; min-width: 90px;">
+                    <span>More</span>
                     <span class="material-symbols-rounded">arrow_forward</span>
                 </a>
                 ${project.sourceCodeUrl ? `
-                <a href="${project.sourceCodeUrl}" target="_blank" class="m3-btn m3-btn-tonal m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>View Code</span>
+                <a href="${project.sourceCodeUrl}" target="_blank" class="m3-btn m3-btn-tonal m3-view-code-btn" style="flex: 1; justify-content: center; text-decoration: none; min-width: 90px;">
+                    <span>Code</span>
                     <span class="material-symbols-rounded">code</span>
                 </a>` : `
-                <button disabled class="m3-btn m3-btn-tonal m3-view-code-btn disabled" style="flex: 1; justify-content: center;">
+                <button disabled class="m3-btn m3-btn-tonal m3-view-code-btn disabled" style="flex: 1; justify-content: center; min-width: 90px;">
                     <span>Private</span>
                     <span class="material-symbols-rounded">lock</span>
                 </button>`}
+                ${project.downloadUrl ? `
+                <a href="${project.downloadUrl}" target="_blank" class="m3-btn m3-btn-download-glow" style="flex: 1; justify-content: center; text-decoration: none; min-width: 90px;">
+                    <span>APK</span>
+                    <span class="material-symbols-rounded">download</span>
+                </a>` : ''}
             </div>
         </div>
     `;
@@ -488,6 +498,36 @@ if (contactForm) {
     });
 }
 
+
+// Anime Cat Eye Tracking Logic
+document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+
+    document.querySelectorAll('.cat-eye').forEach(eye => {
+        const rect = eye.getBoundingClientRect();
+        
+        // Center of the eye
+        const eyeX = rect.left + rect.width / 2;
+        const eyeY = rect.top + rect.height / 2;
+
+        // Angle and Distance between center of eye and mouse
+        const angle = Math.atan2(mouseY - eyeY, mouseX - eyeX);
+        const dist = Math.hypot(mouseX - eyeX, mouseY - eyeY);
+        
+        // Map distance to a small radius (max distance pupil can move)
+        const maxRadius = 12; // 12px max movement from center
+        const radius = Math.min(maxRadius, dist * 0.05); 
+
+        const pupilX = Math.cos(angle) * radius;
+        const pupilY = Math.sin(angle) * radius;
+
+        const pupil = eye.querySelector('.cat-pupil');
+        if (pupil) {
+            pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+        }
+    });
+});
 
 // Shimmer Overlay Logic
 window.addEventListener('load', () => {
